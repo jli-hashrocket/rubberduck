@@ -5,9 +5,7 @@ class RubberDuck
     problem = gets.chomp
     puts "So, the problem is '#{problem}'. You must backtrack. What does the line directly above do?"
     response = gets.chomp
-
     responses = [response]
-    puts responses
     while solution == false
       puts "Have you solved your problem yet? Enter 'Y' or 'N'"
       solved = gets.chomp
@@ -27,6 +25,9 @@ class RubberDuck
     puts "Here is a list of your responses:"
     responses.each do |res|
       puts res
+     File.open('responses.txt','w') do |log|
+      log.puts res
+     end
     end
   end
 end
