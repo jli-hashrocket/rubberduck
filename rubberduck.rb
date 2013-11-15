@@ -25,16 +25,20 @@ class RubberDuck
       end
     end
     puts "Here is a list of your responses:"
+    puts "The problem: #{problem}"
+    File.open('responses.txt','a+') do |log|
+      log.puts "\n"
+      log.puts "The problem: #{problem}"
+    end
     responses.each do |res|
       puts res
      File.open('responses.txt','a+') do |log|
-      log.puts "The problem: #{response} \n"
       log.puts res
      end
     end
     File.open('responses.txt','a+') do |log|
       created = Time.now
-      log.puts "Created on: #{created}" 
+      log.puts "\nCreated on: #{created}" 
     end
   end
 end
