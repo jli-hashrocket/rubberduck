@@ -25,8 +25,9 @@ class RubberDuck
     puts "Here is a list of your responses:"
     responses.each do |res|
       puts res
-     File.open('responses.txt','w') do |log|
+     File.open('responses.txt','a+') do |log|
       log.puts res
+      puts 
      end
     end
   end
