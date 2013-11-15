@@ -1,3 +1,5 @@
+require 'time'
+
 class RubberDuck
   def ask
     solution = false
@@ -26,9 +28,13 @@ class RubberDuck
     responses.each do |res|
       puts res
      File.open('responses.txt','a+') do |log|
+      log.puts "The problem: #{response} \n"
       log.puts res
-      puts 
      end
+    end
+    File.open('responses.txt','a+') do |log|
+      created = Time.now
+      log.puts "Created on: #{created}" 
     end
   end
 end
